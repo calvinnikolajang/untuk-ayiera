@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Ayiera ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        body {
+            /* Tema Pink Pastel */
+            background-color: #fff0f3; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            min-height: 500px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 179, 193, 0.3);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .step.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2, h3 {
+            font-family: 'Caveat', cursive;
+            color: #ff758f;
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.2rem; }
+        
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #5c5c5c;
+            margin-bottom: 25px;
+        }
+
+        p.subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            color: #ff9eaa;
+            margin-bottom: 10px;
+        }
+
+        /* Dekorasi Icon / Gambar */
+        .icon-large {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: #ff8fa3;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(255, 143, 163, 0.4);
+        }
+
+        .btn:hover { 
+            background-color: #ff758f; 
+            transform: scale(1.02);
+        }
+
+        /* Kartu Pesan Terakhir */
+        .final-card {
+            background: #fffafa;
+            border: 2px dashed #ffb3c1;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .final-card p.message {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #ff4d6d;
+            margin-bottom: 15px;
+        }
+
+        .final-card .sender {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: #ff758f;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="step active" id="step-1">
+            <p class="subtitle">Hai, Ayiera! 👋</p>
+            <div class="icon-large">✨</div>
+            <h2>Ada sesuatu yang pengen aku sampaikan buat kamu...</h2>
+            <p>Klik tombol di bawah ya</p>
+            <button class="btn" onclick="nextStep(2)">💌</button>
+        </div>
+
+        <div class="step" id="step-2">
+            <div class="icon-large" style="animation: none;">🌷</div>
+            <h2>Makasih ya!</h2>
+            <p>Aku cuma mau bilang kalau setiap ngobrol sama kamu itu selalu menyenangkan. </p>Entah kenapa, energi dan antusiasme kamu selalu bikin suasana jadi lebih hidup. Bahkan di hari yang biasa aja, rasanya jadi lebih seru kalau ada kamu.</p>
+            <p>Jujur, awalnya aku bingung kok ada orang yang tertarik ngobrol dengan aku.</p>
+            <button class="btn" onclick="nextStep(3)">Lanjut bacanya 👉</button>
+        </div>
+
+        <div class="step" id="step-3">
+            <div class="icon-large" style="animation: none;">✨</div>
+            <h2>Jangan Berubah Ya</h2>
+            <p>Aku suka cara kamu selalu semangat dan excited sama banyak hal. </p>Itu hal kecil yang mungkin nggak kamu sadari, tapi justru jadi salah satu hal yang bikin kamu berbeda dan mudah diingat.
+        </p>Tetap jadi Ayiera yang ceria dan penuh energi ya.</p>
+            <button class="btn" onclick="nextStep(4)">Satu lagi... ✨</button>
+        </div>
+
+        <div class="step" id="step-4">
+            <div class="final-card">
+                <p class="subtitle">To: Ayiera</p>
+                <p class="message">"Terima kasih sudah menjadi seseorang yang selalu membawa energi positif setiap kali kita berinteraksi.
+
+Dan jujur aja, semakin lama kenal kamu, semakin aku sadar kalau aku selalu menantikan obrolan kita."</p>
+                <br>
+                <p style="font-size: 0.9rem; color: #888; margin-bottom: 0;">Dari seseorang yang senang mengenalmu,</p>
+                <div class="sender">Calvin</div>
+            </div>
+            <br>
+            <button class="btn" onclick="nextStep(1)" style="background-color: #ffb3c1; box-shadow: none;">Baca dari awal 🔄</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Fungsi sederhana untuk pindah antar "slide" pesan
+        function nextStep(stepNumber) {
+            // Sembunyikan semua step
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Tampilkan step yang dituju
+            document.getElementById(`step-${stepNumber}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
