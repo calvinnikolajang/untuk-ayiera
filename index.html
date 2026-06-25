@@ -174,9 +174,8 @@
 </head>
 <body>
 
-    <!-- Menambahkan Elemen Audio untuk Musik Latar -->
-    <!-- Atribut 'loop' memastikan lagu diputar ulang terus menerus -->
-    <audio id="bg-music" loop>
+    <!-- Atribut 'loop' dihapus agar bisa dikontrol lewat JavaScript -->
+    <audio id="bg-music">
         <source src="Shape of my heart.mp3" type="audio/mpeg">
         Browser kamu tidak mendukung elemen audio.
     </audio>
@@ -227,6 +226,16 @@ Dan jujur aja, semakin lama kenal kamu, semakin aku sadar kalau aku selalu menan
         // Variabel untuk mengontrol musik
         const bgMusic = document.getElementById('bg-music');
         let isMusicPlaying = false;
+        let playCount = 0; 
+        const maxPlays = 1; // Maksimal berputar 2 kali
+
+        // Logika untuk mengulang lagu sesuai jumlah maxPlays
+        bgMusic.addEventListener('ended', function() {
+            playCount++;
+            if (playCount < maxPlays) {
+                bgMusic.play();
+            }
+        });
 
         function nextStep(stepNumber) {
             // Putar lagu saat pengguna mengklik tombol pertama kali
