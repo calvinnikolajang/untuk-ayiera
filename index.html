@@ -24,26 +24,24 @@
             position: relative;
         }
 
-        /* --- Wadah Khusus Bunga --- */
-        #flower-container {
+        /* --- Wadah Khusus Animasi --- */
+        #animation-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: 1; /* Pastikan di atas background tapi di belakang kotak */
+            z-index: 1; 
             pointer-events: none;
             overflow: hidden;
         }
 
-        .flower {
+        .floating-item {
             position: absolute;
             user-select: none;
-            /* Penulisan animasi yang lebih aman untuk Chrome */
             animation-name: fall;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
-            /* Kita kasih default durasi biar tidak dianggap error */
             animation-duration: 10s; 
         }
 
@@ -176,7 +174,7 @@
 </head>
 <body>
 
-    <div id="flower-container"></div>
+    <div id="animation-container"></div>
 
     <div class="container">
         <div class="step active" id="step-1">
@@ -214,7 +212,7 @@ Dan jujur aja, semakin lama kenal kamu, semakin aku sadar kalau aku selalu menan
                 <div class="sender">Calvin</div>
             </div>
             <br>
-            <button class="btn" onclick="nextStep(1)" style="background-color: #ffb3c1; box-shadow: none;">Baca dari awal 🔄</button>
+            <button class="btn" onclick="nextStep(1)" style="background-color: #ffb3c1; box-shadow: none; color: white;">Baca dari awal 🔄</button>
         </div>
     </div>
 
@@ -226,40 +224,38 @@ Dan jujur aja, semakin lama kenal kamu, semakin aku sadar kalau aku selalu menan
             document.getElementById(`step-${stepNumber}`).classList.add('active');
         }
 
-        const flowerContainer = document.getElementById('flower-container');
-        const emojis = ['🌸', '🌷', '🌺', '🌼', '✨'];
+        const animContainer = document.getElementById('animation-container');
+        const emojis = ['🌸', '🌷', '✨', '💖', '🦋'];
 
-        function createFlower(isInitial = false) {
-            const flower = document.createElement('div');
-            flower.classList.add('flower');
-            flower.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        function createFloatingItem(isInitial = false) {
+            const item = document.createElement('div');
+            item.classList.add('floating-item');
+            item.innerText = emojis[Math.floor(Math.random() * emojis.length)];
             
-            flower.style.left = Math.random() * 100 + 'vw';
-            flower.style.animationDuration = (Math.random() * 5 + 8) + 's';
-            flower.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            item.style.left = Math.random() * 100 + 'vw';
+            item.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            item.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
 
             if (isInitial) {
-                flower.style.top = Math.random() * 100 + 'vh';
+                item.style.top = Math.random() * 100 + 'vh';
             } else {
-                flower.style.top = '-10vh';
+                item.style.top = '-10vh';
             }
 
-            flowerContainer.appendChild(flower);
+            animContainer.appendChild(item);
 
             setTimeout(() => {
-                if (flowerContainer.contains(flower)) {
-                    flower.remove();
+                if (animContainer.contains(item)) {
+                    item.remove();
                 }
             }, 15000);
         }
 
-        console.log("Memulai animasi bunga..."); // Buat ngecek di console Chrome
-
         for(let i = 0; i < 15; i++) {
-            createFlower(true);
+            createFloatingItem(true);
         }
 
-        setInterval(() => createFlower(false), 800);
+        setInterval(() => createFloatingItem(false), 800);
     </script>
 </body>
 </html>
